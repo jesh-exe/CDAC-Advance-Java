@@ -1,0 +1,14 @@
+com\app\pojos\BaseEntity.class
+com\app\controller\MainController.class
+com\app\dao\PlayerDaoImpl.class
+com\app\pojos\Team.class
+com\app\service\PlayerServiceImpl.class
+com\app\service\TeamService.class
+com\app\dao\TeamDao.class
+com\app\Application.class
+com\app\pojos\Player.class
+com\app\dao\PlayerDao.class
+com\app\controller\PlayerController.class
+com\app\service\TeamServiceImpl.class
+com\app\dao\TeamDaoImpl.class
+com\app\service\PlayerService.class
