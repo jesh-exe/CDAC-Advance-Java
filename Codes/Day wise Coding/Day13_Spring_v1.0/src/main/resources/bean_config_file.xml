@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- bean tag used just like the JSP Bean Tag, here we have many attributes to use like
+	id, class
+	scope = 1. Singleton(Only 1 instance per application)-(DEFAULT)
+			2. Prototype(1 instance per demand) also we can't change the initialization type of prototype bean
+			   it is always a Lazy type,if we try to change it, Spring Container will just ignore it
+	lazy-init 			= 1. EAGER - (Default)
+(used with Singleton)	  2. LAZY -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+
+<!--Here we are creating the Object of Cash Class(Dcy) and as it is singleton and Eager, it will be created at
+	the application start and only 1 instance will be created throughout for everyone -->
+
+	<bean id="cash" class="dependency.Cash" scope="singleton" lazy-init="false"></bean>
+
+<!--Here we are creating object of HttpTransport class and we have given lazy-init as True(LAZY) and by default
+	scope is SINGLETON so only 1 instance will be created NOT on start of application, but whenever user uses getBean()
+	method to invoke this id(ON DEMAN INITIATED)  -->
+	
+	<bean id="http" class="dependency.HttpTransport" lazy-init="true"></bean>
+
+<!--Similary we are creating TestTransport object but the scope is PROTOTYPE and is Lazy
+so each time DEMAND is made for TestTransport, a new instance will be created and supplied-->
+
+<!-- If we try to write lazy-init with scope, SC will ignore the lazy-init attribute
+ -->
+	<bean id="test" class="dependency.TestTransport" scope="prototype"></bean>
+	<bean id="soap" class="dependency.SoapTransport" lazy-init="true"></bean>
+	<bean id="email" class="dependency.EmailNotification" lazy-init="true"></bean>
+	<bean id="sms" class="dependency.SmsNotification" lazy-init="true"></bean>
+	
+<!-- Here we are creating the bean tag for DEEPENDENT CLASS and using Setter based DI so 
+we use a tag named property which takes name(parameter name same to same) and ref(bean obj)/value(any parameter we want to send) -->
+
+<!-- So we can change the instances from here only and our code wont need to be change, hence we have achieved LOOSE COUPLING -->
+
+	<bean id="atmSetter" class="dependent.ATMImpl" scope="prototype">
+		<property name="myTransport" ref="soap"></property>
+		<property name="myNotification" ref="email"></property>
+	</bean>
+
+<!--To use Parameterized Constructor Based DI, we need to use constructor-arg tag which takes name as input of
+	parameter we have declared in constructor and ref of the DEPENDENCY class we want to use -->
+
+	<bean id="atmParamConstr" class="dependent.ATMImpl" scope="prototype">
+		<constructor-arg name="myTransport" ref="http" ></constructor-arg>
+		<constructor-arg name="myNotification" ref="sms"></constructor-arg>
+	</bean>
+
+<!--To use factory method based DI, we need to give a extra attribute factory-method with the name of the
+	method we declared in our class and to give the parameter,we can use the constructor arg tag, number of
+	const tag is equivalence to number of in parameters -->	
+	<bean id="atmFactory" class="dependent.ATMImpl" scope="prototype" factory-method="myFactory">
+		<constructor-arg name="myTransport" ref="test" ></constructor-arg>
+		<constructor-arg name="myNotification" ref="sms"></constructor-arg>		
+	</bean>
+	
+
+</beans> 
