@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Welcome to the Voting System</title>
+
+    <style>
+        body {
+            font-size: large;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #main-container{
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        #container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: #fff;
+            /* width: 30%; */
+            /* height: 40%; */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .registration-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            /* width: 40%; */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #signup-btn{
+            
+        }
+
+        .main-container.active .container{
+            transform: translateX(100%);
+        }
+
+        button {
+            font-size: 15px;
+            background-color: rgb(84, 147, 255);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 7px;
+        }
+
+        button:hover {
+            transition: all 0.2s ease-in;
+            background-color: rgb(0, 55, 196);
+        }
+
+        input {
+            font-family: Arial, sans-serif;
+            border: 1px solid black;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        footer {
+            text-align: center;
+            width: 100%;
+            background-color: rgb(84, 147, 255);
+            color: white;
+            font-size: medium;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="main-container" class="main-container">
+
+
+        <div id="container" class="container">
+            <h1 style="text-align: center; color: rgb(45, 122, 255);">Voting Portal</h1>
+            <form action="authenticate" method="post">
+
+                <table cellpadding="10px">
+
+                    <tr>
+                        <td>Email ID</td>
+                        <td> <input type="text" name="email" placeholder="Enter Email" required> </td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" name="password" placeholder="Enter Password" required></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit">Login</button> &nbsp;
+                            <button type="button" id="signup-btn">Sign Up</button>
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+        </div>
+
+        <div class="registration-container">
+            <h1>User Registration</h1>
+            <form action="signup" method="post">
+
+                <table>
+                    <tr>
+                        <td>
+                            <label for="firstname">First Name:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="firstname" name="fname" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="lastname">Last Name:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="lastname" name="lname" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="email">Email:</label>
+                        </td>
+                        <td>
+                            <input type="email" id="email" name="em" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="password">Password:</label>
+                        </td>
+                        <td>
+                            <input type="password" id="password" name="pass" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="dob">Date of Birth:</label>
+                        </td>
+                        <td>
+                            <input type="date" id="dob" name="dob" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit">Submit</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div>Designed by @Jayesh Murodiya</div>
+    </footer>
+</body>
+
+</html>

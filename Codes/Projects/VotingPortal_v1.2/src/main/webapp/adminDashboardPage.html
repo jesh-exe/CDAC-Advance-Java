@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .dashboard-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button.logout-btn {
+            background-color: #dc3545;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            table {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <h1>Admin Dashboard</h1>
+        
+        <div style="text-align: right; color: rgb(77, 77, 77);">Welcome, </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Party</th>
+                    <th>Votes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Candidate 1</td>
+                    <td>Party A</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Candidate 2</td>
+                    <td>Party B</td>
+                    <td>800</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Candidate 3</td>
+                    <td>Party C</td>
+                    <td>1200</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Candidate 4</td>
+                    <td>Party D</td>
+                    <td>950</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="action-buttons">
+            <a href="registerCandidatePage.html"><button type="button">Add Candidate</button></a>
+            <form action="exit" method="post">
+                <button class="logout-btn" type="submit">Logout</button>
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>
