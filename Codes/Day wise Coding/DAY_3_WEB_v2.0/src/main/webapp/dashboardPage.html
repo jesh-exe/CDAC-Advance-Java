@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .dashboard-container {
+            width: 40%;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .candidate-radio {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        label {
+            padding: 10px;
+            color: #333;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button.logout-btn {
+            background-color: #dc3545;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <h1>Voter Dashboard</h1>
+        <p>Select your preferred candidate:</p>
+
+        <form action="voted_by_voter" method="post">
+            <div class="candidate-radio">
+                <label>
+                    <input type="radio" name="candidate" value="candidate1">Candidate 1
+                </label>
+                <label>
+                    <input type="radio" name="candidate" value="candidate2">Candidate 2
+                </label>
+                <label>
+                    <input type="radio" name="candidate" value="candidate3">Candidate 3
+                </label>
+                <label>
+                    <input type="radio" name="candidate" value="candidate4">Candidate 4
+                </label>
+            </div>
+            
+            <button type="submit">Vote</button>
+            <a href="logoutPage.html"><button class="logout-btn" type="button">Logout</button></a>
+        </form>
+    </div>
+</body>
+
+</html>
