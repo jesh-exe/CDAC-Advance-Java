@@ -5,3 +5,5 @@ at CDAC(Center for Development of Advanced Computing) Pune - Headquarter Branch.
 
 During my training I have learned many new things which I tried to implement then as a Side Project.
 I have also written codes on the basis of Day wise Topics.
+
+I have uploaded the Syllabus pdf which was covered in my training... 😊
